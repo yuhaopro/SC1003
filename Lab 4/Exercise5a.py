@@ -13,17 +13,19 @@ green = (0,255,0)
 
 colorList = [red, yellow, blue, green]
 
+#sense.clear()
 for i in range(_RPISCREENHEIGHT):
     for j in range(_RPISCREENWIDTH):
         if i == 0 and j == 0:
+            print(i,j,colorList[randint(0, len(colorList) - 1)])
             #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
-            pass
         if i == 0 and j == _RPISCREENWIDTH - 1:
+            print(i,j,colorList[randint(0, len(colorList) - 1)])
             #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
-            pass
         if i == _RPISCREENHEIGHT - 1 and j == 0:
+            print(i,j,colorList[randint(0, len(colorList) - 1)])
             #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
-            pass
         if i == _RPISCREENHEIGHT - 1 and j == _RPISCREENWIDTH - 1:
+            print(i,j,colorList[randint(0, len(colorList) - 1)])
             #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
-            pass
+
