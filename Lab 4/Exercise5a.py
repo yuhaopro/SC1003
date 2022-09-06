@@ -18,3 +18,12 @@ for i in range(_RPISCREENHEIGHT):
         if i == 0 and j == 0:
             #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
             pass
+        if i == 0 and j == _RPISCREENWIDTH - 1:
+            #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
+            pass
+        if i == _RPISCREENHEIGHT - 1 and j == 0:
+            #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
+            pass
+        if i == _RPISCREENHEIGHT - 1 and j == _RPISCREENWIDTH:
+            #sense.set_pixel(i,j,colorList[randint(0, len(colorList) - 1)])
+            pass
