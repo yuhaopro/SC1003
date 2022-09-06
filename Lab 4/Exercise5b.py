@@ -26,7 +26,9 @@ while checking < 100:
             image_pixels[i] = y
     #set rotation after finish alternating all colors
     #set_rotation(orientation[randint(0, len(orientation) - 1)])
-    #sleep for 1 second
+    #Display new pixel image
+    #set_pixels(image_pixel)
+    #Sleep for 1 second
     sleep(1)
     print(image_pixels[0])
 
