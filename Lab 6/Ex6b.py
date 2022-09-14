@@ -43,7 +43,6 @@ while True:
     roll = sense.get_orientation()['roll'] 
     pitch = round(pitch, 0)
     roll = round(roll, 0)
-    board[y][x] = b
     x,y = move_marble(pitch,roll,x,y)
     board[y][x] = w
     sense.set_pixels(sum(board,[])) 
