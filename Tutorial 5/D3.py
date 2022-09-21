@@ -13,3 +13,14 @@ def symmetricString(myStr):
     return myStr + reverser(myStr)
 
 print(symmetricString("Hello"))
+
+def symmetricString2(a_str):
+    if len(a_str) == 1:
+        return a_str + a_str
+    
+    else:
+        resultStr = a_str[0] symmetricString2(a_str[1:]) + a_str[0]
+    
+    return resultStr
+        
+    
