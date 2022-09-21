@@ -18,3 +18,15 @@ def reverseAndRepeat(myStr, number):
         return temp
 
 print(reverseAndRepeat("Helo", 3))
+
+# non recursive way
+
+def reverseAndRepeat2(a_str, num):
+    reversedStr = reverser(a_str)
+    resultStr = ""
+    
+    for i in range(len(reversedStr)):
+        resultStr.append(reversedStr[i] * num)
+        
+    return resultStr
+    
