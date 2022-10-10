@@ -2,7 +2,6 @@
 int main()  
 {
    int studentNumber = 0, mark;      
-    
    printf("Enter Student ID: \n");
    scanf("%d", &studentNumber);
    while (studentNumber != -1)  
