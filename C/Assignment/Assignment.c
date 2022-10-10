@@ -42,6 +42,7 @@ int main()
     {
         printf("Enter your choice:\n");
         scanf("%d", &input);
+        fflush(stdin);
         switch(input)
         {
             case 1:
@@ -106,7 +107,7 @@ void assignRoom()
 
     while(AskRoomID == 1)
     {
-        printf("Select your RoomID (Between 1 to 5): ");
+        printf("Enter a roomID between 1 and 5");
         scanf("%d", &roomID);
         fflush(stdin);
         //Checks range of roomID
@@ -123,6 +124,7 @@ void assignRoom()
                 //ask user to enter customerName
                 printf("Enter customer name: ");
                 fgets(str, 20, stdin);
+                fflush(stdin);
                 //copies string over to customer
                 strcpy(RoomList[i].customerName,str);
                 //Turn Off the Loop
