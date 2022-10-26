@@ -7,7 +7,7 @@
 #include <stdio.h>
 #define SIZE 20
 
-char *strocpy(char * s1, char * s2, int n);
+char *strncpy(char * s1, char * s2, int n);
 
 int main()
 {
@@ -21,7 +21,7 @@ int main()
 
 }
 
-char *strocpy(char * s1, char * s2, int n)
+char *strncpy(char * s1, char * s2, int n)
 {
 
     for (int i = 0; i < n; i++)
