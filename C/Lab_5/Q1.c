@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #define MAX 100
 typedef struct {
    char name[20];
@@ -66,10 +67,6 @@ int readin(PhoneBk *pb)
     int i = 0, j;
     char str[20];
     
-    for (int k = 0; k < 20; k++)
-    {
-        str[k] = 0;
-    }
     printf("Enter Name: \n");
     scanf("%20[^\n]", str);
     
@@ -98,15 +95,23 @@ int readin(PhoneBk *pb)
 void search(PhoneBk *pb, int size, char *target) 
 {
     int i = 0;
-    char str[20];
-    printf("Enter search name: \n");
-    scanf("%20[^\n]", str);
+    char str[20], str1[20], str2[20];
+    
+    for (int j = 0; j < 20; j++)
+    {
+        str1[j] = tolower(target[j]);
+    }
+    
     for (i = 0; i < size; i++)
     {
-        if (strcmp(str, (pb + i)->name) == 0)
+        for (int j = 0; j < 20; j++)
         {
-            printf("Name = %s, Tel = %d",(pb + i)->name, (pb + i)->telno);
-            break;
+            str2[j] = tolower((pb + i)->name[j]);
+        }
+        if (strcmp(str1, str2) == 0)
+        {
+            printf("Name = %s, Tel = %d\n",(pb + i)->name, (pb + i)->telno);
+            return;
         }
         
     }
