@@ -1,0 +1,35 @@
+https://stackoverflow.com/questions/32679440/how-to-make-negated-scanset-of-scanf-work-in-a-loop/32680104#32680104
+Try this quiz: User types A, B, C, Enter and code is
+
+scanf("%[AB]", buf1);
+scanf("%[AB]", buf2);
+What goes into buf1?
+What goes into buf2?
+
+scanf("%[AB]", buf1); --> "AB" is store in buf1 and returns 1 indicating 1 field successfully scanned. scanf("%[AB]", buf2); --> buf2 remains unchanged, nothing is put in it and 'C' and '\n' remain in stdin. The return value of 0 indicating failure to save data, but something is in stdin.
+
+The same thing happens with D, E, F, Enter G, H, I, Enter
+
+scanf("%[^\n]", buf3);
+scanf("%[^\n]", buf4);
+"DEF" is store in buf3. But buf4 remains unchanged, nothing is put in it and '\n', 'G', 'H', 'I' and '\n' remain in stdin.
+
+OP code fails because '\n' is never consumed by scanf("%[^\n]s", str);.
+
+The closest acceptable general method is
+
+*str = 0;  // Terminate s in case only \n entered
+if (scanf("%127[^\n]", str) != 1) Handle_EOF();
+scanf("%1*[\n]"); // consume next character if it is a \n
+Using a negated scanset, or any scanset, to read a line in a poor general purpose solution.
+Use fgets() or getline() (*nix) instead.
+
+fgets(str, sizeof str, stdin);
+str[strcspn(str, "\n")] = 0; // To lop off a potential trailing \n
+Other approaches:
+
+scanf(" %127[^\n]", str); first scans in all leading white-space and throws them away, then it scans non-'\n' characters into str. This does not allow leading spaces in str.
+
+scanf("%127[^\n]%*c", str); reads in nothing if the first character is '\n'. str left unchanged. A repeated call will also have the same problem.
+
+scanf(" %[^\n]s", str); fails like #1. Also: the 's' is pointless - remove it.
