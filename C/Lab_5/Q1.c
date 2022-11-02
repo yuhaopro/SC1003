@@ -80,14 +80,14 @@ int readin(PhoneBk *pb)
     
     while(str[0] != '#')
     {
+        // printf("string: %s\n", str);
         printf("Enter Telno: \n");
-        scanf("%d", &((pb)->telno));
-        
-        strcpy((pb)->name, str);
+        scanf("%d[^\n]", &((pb+ i)->telno));
+        scanf("%1*[\n]");
+        strcpy((pb + i)->name, str);
         
         printf("Enter Name: \n");
         scanf("%20[^\n]", str);
-        pb++;
         i++;
     }
 
